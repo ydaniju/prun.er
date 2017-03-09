@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class HomesController < ApplicationController
   def index
     @display_top_links = Link.top_links

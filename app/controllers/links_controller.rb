@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class LinksController < ApplicationController
   before_action :right_user, only: :destroy
   def index
@@ -22,7 +23,7 @@ class LinksController < ApplicationController
   def destroy
     @link.destroy
     redirect_to root_path unless signed_in?
-    flash[:success] = "Link successfully destroyed"
+    flash[:success] = 'Link successfully destroyed'
     redirect_to request.referrer || root_url
   end
 
@@ -36,10 +37,10 @@ class LinksController < ApplicationController
     status = bool_check(updated_params[:enabled])
     current_link = Link.find(params[:id])
     if target_url == current_link.url_input && status == current_link.enabled
-      flash[:alert] = "No changes made"
+      flash[:alert] = 'No changes made'
     else
       current_link.update_attributes(url_input: target_url, enabled: status)
-      flash[:success] = "Link updated"
+      flash[:success] = 'Link updated'
     end
     redirect_to current_user
   end
@@ -52,7 +53,7 @@ class LinksController < ApplicationController
     @link.save
 
   rescue NoMethodError
-    flash[:error] = "Link must have been destroyed"
+    flash[:error] = 'Link must have been destroyed'
     redirect_to root_path
   end
 end

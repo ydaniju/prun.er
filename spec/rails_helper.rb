@@ -1,32 +1,33 @@
+# frozen_string_literal: true
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= "test"
-require File.expand_path("../../config/environment", __FILE__)
+ENV['RAILS_ENV'] ||= 'test'
+require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if
+abort('The Rails environment is running in production mode!') if
  Rails.env.production?
 
 def sign_up_with(username, email, password, password_confirmation)
   visit signup_path
-  fill_in "Username", with: username
-  fill_in "Email", with: email
-  fill_in "Password", with: password
-  fill_in "Confirmation", with: password_confirmation
-  click_button "Create Account"
+  fill_in 'Username', with: username
+  fill_in 'Email', with: email
+  fill_in 'Password', with: password
+  fill_in 'Confirmation', with: password_confirmation
+  click_button 'Create Account'
 end
 
 def sign_in_with(email, password)
-  visit "/sessions/new"
-  fill_in "Email", with: email
-  fill_in "Password", with: password
+  visit '/sessions/new'
+  fill_in 'Email', with: email
+  fill_in 'Password', with: password
 
-  click_button "Sign In"
+  click_button 'Sign In'
 end
 
-require "spec_helper"
-require "rspec/rails"
-require "capybara/rails"
-require "capybara/rspec"
-require "factory_girl_rails"
+require 'spec_helper'
+require 'rspec/rails'
+require 'capybara/rails'
+require 'capybara/rspec'
+require 'factory_girl_rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

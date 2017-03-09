@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module SessionsHelper
   def current_user
     user_id = session[:user_id]
